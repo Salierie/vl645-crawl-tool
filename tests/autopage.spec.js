@@ -6,5 +6,6 @@ test ('AutoPage', async ({page})=>{
     const btnCopy = page.locator("//a[normalize-space()='»']");
 
     await btnCopy.dblclick();
-    
+        
+    await page.waitForTimeout(10000);
 })
