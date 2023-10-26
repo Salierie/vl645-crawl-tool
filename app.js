@@ -1,7 +1,7 @@
 const cheerio = require("cheerio");
 const axios = require("axios");
 const fs = require('fs');
-
+//const atp = require('./tests/autopage.spec.js');
 
 const baseUrl = "https://vietlott.vn/vi/trung-thuong/ket-qua-trung-thuong/winning-number-645#top"
 
@@ -33,14 +33,13 @@ async function printAllPossibleSets(numbers){
       groups.push(numbers.slice(i, i + 6));
     }
 
-    // In ra tất cả các bộ đôi trong mỗi nhóm bộ 6.
     for(const group of groups){
         for(let i = 0; i < group.length; i++){
             console.log(group[i]);
             singleArr.push(group[i]);
         }   
     }
-    //console.log(singleArr);
+
     for (const single of singleArr) {
       fs.appendFileSync('./single.xlsx', single + '\n');
     }
@@ -53,8 +52,7 @@ async function printAllPossibleSets(numbers){
         }
       }
     }
- 
-    // In ra tất cả các bộ ba trong mỗi nhóm bộ 6.
+
     for (const group of groups) {
       for (let i = 0; i < group.length; i++) {
         for (let j = i + 1; j < group.length; j++) {
@@ -65,8 +63,7 @@ async function printAllPossibleSets(numbers){
         }
       }
     }
-  
-    // In ra tất cả các bộ bốn trong mỗi nhóm bộ 6.
+
     for (const group of groups) {
       for (let i = 0; i < group.length; i++) {
         for (let j = i + 1; j < group.length; j++) {
@@ -80,7 +77,6 @@ async function printAllPossibleSets(numbers){
       }
     }
   
-    // In ra tất cả các bộ năm trong mỗi nhóm bộ 6.
     for (const group of groups) {
       for (let i = 0; i < group.length; i++) {
         for (let j = i + 1; j < group.length; j++) {
@@ -142,9 +138,10 @@ async function getResults(url){
         const table = $('tbody');
         table.each(function(){         
             num = $(this).find("tr td span").text();
+
             results.push(num);             
         });
-
+        
         let resultString = results.toString();
         for (let i = 0; i < resultString.length; i+=2){
             let ball = resultString.substring(i, i+2);
