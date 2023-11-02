@@ -3,7 +3,7 @@ const axios = require("axios");
 const fs = require('fs');
 //const atp = require('./tests/autopage.spec.js');
 
-const baseUrl = "https://vietlott.vn/vi/trung-thuong/ket-qua-trung-thuong/winning-number-645#top"
+const baseUrl = "`https://vietlott.vn/vi/trung-thuong/ket-qua-trung-thuong/winning-number-645#top`"
 
 const results = [];
 const alpha = []; 
