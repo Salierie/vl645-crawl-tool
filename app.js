@@ -3,7 +3,7 @@ const axios = require("axios");
 const fs = require('fs');
 //const atp = require('./tests/autopage.spec.js');
 
-const baseUrl = "`https://vietlott.vn/vi/trung-thuong/ket-qua-trung-thuong/winning-number-645#top`"
+const baseUrl = "https://www.ketquadientoan.com/tat-ca-ky-xo-so-mega-6-45.html?datef=20-07-2016&datet=08-11-2023"
 
 const results = [];
 const alpha = []; 
@@ -137,7 +137,7 @@ async function getResults(url){
         
         const table = $('tbody');
         table.each(function(){         
-            num = $(this).find("tr td span").text();
+            num = $(this).find(".home-mini-whiteball").text();
 
             results.push(num);             
         });

@@ -1,10 +1,23 @@
-const axios = require('axios');
-url = "https://vietlott.vn/vi/trung-thuong/ket-qua-trung-thuong/winning-number-645#top";
-async function AutoPage(url){
-    try{
-        const response = await axios.get(url).then(function(response){
-            console.log(response.data);
-        });
+const getBtn = document.getElementById('get-btn');
+const postBtn = document.getElementById('post-btn');
 
-    }catch(error){}
+url = 'https://xosovn.com/xs-mega-xem-them';
+
+const getData = () => {
+    axios.get('https://xosovn.com/xs-mega-xem-them').then(response => {
+        console.log(response);
+    });
+};
+
+const sendData = () => {
+    axios.post('https://xosovn.com/xs-mega-xem-them',{
+        
+    }).then(response => {
+        console.log(response);
+    }).catch(err => {
+        console.log(err);
+    })
 }
+
+getBtn.addEventListener('click', getData);
+postBtn.addEventListener('click', sendData);
